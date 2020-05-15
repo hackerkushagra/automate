@@ -1,13 +1,15 @@
 import tweepy
 import requests
 import time
+import os
+print(os.environ['HOME'])
 
 
 def save_twitter_data(tweet_url, files_location):
-    consumer_key = "consumer_key"
-    consumer_secret = "consumer_secret"
-    access_token = "access_token"
-    access_token_secret = "access_token_secret"
+    consumer_key = os.environ["consumer_key"]
+    consumer_secret = os.environ["consumer_secret"]
+    access_token = os.environ["access_token"]
+    access_token_secret = os.environ["access_token_secret"]
     tweet_id = tweet_url.split('?s')[0].split("/")[-1]
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
