@@ -4,10 +4,10 @@ import time
 
 
 def save_twitter_data(tweet_url, files_location):
-    consumer_key = "4ybl9utqTJIDDldgYTFYjQSyP"
-    consumer_secret = "2ZVnVubW55vfTAhlSvoYRO8qSu4zpvq77YmRGvRAuIV7IF1flb"
-    access_token = "2217356431-TfFkDDoLJhl2VADsPZvZfQzaMLXkjO3la8xeqG3"
-    access_token_secret = "Y1cKeCkGlDOjxKyIHF3NdvYCODEuybyapEBnPlrIbpDzX"
+    consumer_key = "consumer_key"
+    consumer_secret = "consumer_secret"
+    access_token = "access_token"
+    access_token_secret = "access_token_secret"
     tweet_id = tweet_url.split('?s')[0].split("/")[-1]
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
