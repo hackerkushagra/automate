@@ -9,6 +9,12 @@
 from twitter_image import save_twitter_data
 from get_data import get_sources
 
+#######################################################
+
+files_location = 'sources/'
+
+#######################################################
+
 
 def test():
     all_sources = get_sources()
@@ -16,7 +22,7 @@ def test():
         for sources in all_sources:
             for source in sources:
                 if "twitter" in sources[source]:
-                    save_twitter_data(sources[source])
+                    save_twitter_data(sources[source], files_location)
 
 
 if __name__ == "__main__":
