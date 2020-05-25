@@ -16,13 +16,16 @@ def save_twitter_data(tweet_url, files_location):
     ids = [tweet_id]
     epoc_time = time.time()
     image_name = files_location+ids[0]+str(epoc_time)+'pic.jpg'
-    tweets = api.statuses_lookup(ids, include_entities=True, trim_user=True, tweet_mode="extended")
-    for tweet in tweets:
-        media_url = tweet.extended_entities['media'][0]["media_url"]
-        with open(image_name, 'wb') as handle:
-            response = requests.get(media_url, stream=True)
-            if response.status_code == 200:
-                for block in response.iter_content(1024):
-                    if not block:
-                        break
-                    handle.write(block)
+    try:
+        tweets = api.statuses_lookup(ids, include_entities=True, trim_user=True, tweet_mode="extended")
+        for tweet in tweets:
+            media_url = tweet.extended_entities['media'][0]["media_url"]
+            with open(image_name, 'wb') as handle:
+                response = requests.get(media_url, stream=True)
+                if response.status_code == 200:
+                    for block in response.iter_content(1024):
+                        if not block:
+                            break
+                        handle.write(block)
+    except Exception as e:
+        print("Warning -->", e)
