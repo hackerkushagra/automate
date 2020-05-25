@@ -2,7 +2,6 @@ import tweepy
 import requests
 import time
 import os
-print(os.environ['HOME'])
 
 
 def save_twitter_data(tweet_url, files_location):

@@ -16,7 +16,7 @@ files_location = 'sources/'
 #######################################################
 
 
-def test():
+def getFacts():
     all_sources = get_sources()
     if all_sources:
         for sources in all_sources:
@@ -26,4 +26,4 @@ def test():
 
 
 if __name__ == "__main__":
-    test()
+    getFacts()
